@@ -1,3 +1,4 @@
+using Root.Interactions;
 using UnityEngine;
 
 namespace Root.Player
@@ -5,12 +6,18 @@ namespace Root.Player
     public class PlayerStateMachine : MonoBehaviour
     {
         [SerializeField] private PlayerMovement playerMovement;
+        [SerializeField] private PlayerInteractionHandler interactionHandler;
+
         private Vector3 moveDir;
-        private PlayerStates state;
+        private PlayerStates state = PlayerStates.Idle;
+        private bool blockInput = false;
 
         void Update()
         {
-            this.ChangeStateBasedOnInput();
+            if (!this.blockInput)
+            {
+                this.ChangeStateBasedOnInput();
+            }
 
             switch (this.state)
             {
@@ -25,7 +32,28 @@ namespace Root.Player
                 case PlayerStates.Running:
                     this.playerMovement.Run(this.moveDir);
                     break;
+
+                case PlayerStates.Dialoguing:
+                    this.playerMovement.Stop();
+
+                    if (!this.interactionHandler.CanInteract())
+                    {
+                        this.blockInput = false;
+                        return;
+                    }
+                    
+                    if (this.InteractionKeyPressed())
+                    {
+                        this.interactionHandler.Interact();
+                    }
+                    
+                    break;
             }
+        }
+
+        private bool InteractionKeyPressed()
+        {
+            return Input.GetKeyDown(KeyCode.K);
         }
 
         private void ChangeStateBasedOnInput()
@@ -33,6 +61,14 @@ namespace Root.Player
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
             bool running = Input.GetKey(KeyCode.J);
+            bool tryingToInteract = this.InteractionKeyPressed();
+
+            if (tryingToInteract && this.interactionHandler.CanInteract())
+            {
+                this.blockInput = true;
+                this.state = this.InteractionTypeToPlayerState(this.interactionHandler.GetInteractionType());
+                return;
+            }
 
             if (horizontal != 0 && vertical != 0)
             {
@@ -58,12 +94,24 @@ namespace Root.Player
                 this.state = PlayerStates.Idle;
             }
         }
-    }
 
-    public enum PlayerStates
-    {
-        Idle,
-        Walking,
-        Running
+        private PlayerStates InteractionTypeToPlayerState(InteractionTypes interactionType)
+        {
+            switch (interactionType)
+            {
+                case InteractionTypes.Dialogue:
+                    return PlayerStates.Dialoguing;
+            }
+
+            return PlayerStates.Idle;
+        }
+
+        private enum PlayerStates
+        {
+            Idle,
+            Walking,
+            Running,
+            Dialoguing
+        }
     }
 }
