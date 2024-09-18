@@ -29,7 +29,7 @@ namespace Root.Dialogues
         private void Start()
         {
             DontDestroyOnLoad(this);
-            this.dialogueBox = Instantiate(Resources.Load<GameObject>("Prefabs/Dialogue/DialogueBox"));
+            this.dialogueBox = Instantiate(Resources.Load<GameObject>("Prefabs/Dialogue/DialogueBox"), this.transform);
             this.dialogueText = this.dialogueBox.GetComponentInChildren<TextMeshProUGUI>();
             this.dialogueBox.SetActive(false);
         }
@@ -54,7 +54,6 @@ namespace Root.Dialogues
         {
             if (this.WritingText())
             {
-                Debug.Log(this.completeDialogueText.Length);
                 this.dialogueText.text = this.completeDialogueText;
             }
             else if (this.currentDialogue.canContinue)
