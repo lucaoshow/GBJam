@@ -68,7 +68,6 @@ namespace Root.Dialogues
         public void StartDialogue(TextAsset inkJson)
         {
             this.currentDialogue = new Story(inkJson.text);
-            this.dialogueEnded = false;
             this.dialogueBox.SetActive(true);
             this.ContinueDialogue();
         }
@@ -97,7 +96,9 @@ namespace Root.Dialogues
 
         public bool EndedDialogue()
         {
-            return this.dialogueEnded;
+            bool ended = this.dialogueEnded;
+            this.dialogueEnded = false;
+            return ended;
         }
 
         private void ShowChoices()
@@ -108,8 +109,8 @@ namespace Root.Dialogues
                 GameObject choiceObject = Instantiate(this.dialogueChoice, this.transform);
                 choiceObject.transform.position += offset;
                 choiceObject.GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
-                if (choice.index == 0) { choiceObject.GetComponent<Button>().Select(); }
                 choiceObject.SetActive(true);
+                if (choice.index == 0) { choiceObject.GetComponent<Button>().Select(); }
 
                 this.activeChoices.Insert(choice.index, choiceObject);
             }

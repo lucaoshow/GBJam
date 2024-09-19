@@ -6,23 +6,19 @@ namespace Root.Dialogues
     public class DialogueInteraction : Interactable
     {
         [SerializeField] private TextAsset inkJson;
-
+        private bool firstInteraction = true;
         public override void Interact()
         {
-            if (this.stillInteractable)
+            if (this.firstInteraction)
             {
                 DialogueManager.Instance.StartDialogue(this.inkJson);
-                this.DisableInteraction();
+                this.firstInteraction = false;
             }
             else if (this.CanInteract())
             {
                 DialogueManager.Instance.ContinueDialogue();
+                this.stillInteractable = !DialogueManager.Instance.EndedDialogue();
             }
-        }
-
-        public override bool CanInteract()
-        {
-            return !DialogueManager.Instance.EndedDialogue();
         }
     }
 }
