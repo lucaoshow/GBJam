@@ -32,10 +32,15 @@ namespace Root.Interactions
             }
         }
         
-        protected void DisableInteraction()
+        public void DisableInteraction()
         {
             this.InteractionIconVisible(false);
             this.stillInteractable = false;
+        }
+
+        public void EnableInteraction()
+        {
+            this.stillInteractable = true;
         }
     }       
 }
