@@ -1,11 +1,13 @@
 using Root.Interactions;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 namespace Root.Player
 {
     public class PlayerInteractionHandler : MonoBehaviour
     {
+        [SerializeField] private UnityEvent<InteractionTypes> forcedInteractionEvent;
         private List<Interactable> interactables = new List<Interactable>();
         private Interactable closestInteractable;
 
@@ -82,6 +84,12 @@ namespace Root.Player
                 if (interactable.CanInteract())
                 {
                     this.AddInteractable(interactable);
+                    if (interactable.InteractOnCollision())
+                    {
+                        this.closestInteractable = interactable;
+                        this.forcedInteractionEvent.Invoke(this.closestInteractable.GetInteractionType());
+                        this.Interact();
+                    }
                 }
             }
         }
