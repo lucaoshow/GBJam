@@ -51,6 +51,12 @@ namespace Root.Player
             }
         }
 
+        public void OnForcedInteraction(InteractionTypes interactionType)
+        {
+            this.blockInput = true;
+            this.state = this.InteractionTypeToPlayerState(interactionType);
+        }
+
         private bool InteractionKeyPressed()
         {
             return Input.GetKeyDown(KeyCode.K);

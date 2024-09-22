@@ -6,6 +6,7 @@ namespace Root.Interactions
     {
         [SerializeField] private GameObject interactionIcon;
         protected bool stillInteractable = true;
+        protected bool interactWhenCollide = false;
         
         public virtual void Interact() { }
 
@@ -24,6 +25,11 @@ namespace Root.Interactions
             return this.stillInteractable;
         }
 
+        public bool InteractOnCollision()
+        {
+            return this.interactWhenCollide;
+        }
+        
         public void InteractionIconVisible(bool visible)
         {
             if (this.stillInteractable)
