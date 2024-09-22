@@ -13,7 +13,6 @@ namespace Root.Chair
 
         public void InteractedWithChair(ChairInteractable chair)
         {
-            this.completed = this.chairs.All(c => c.SameOrientationAsPlace());
             this.currentChair = chair;
             this.chairs.ForEach(c => c.DisableInteraction());
             this.chairsPlaces.ForEach(cp => { cp.gameObject.SetActive(true); cp.EnableInteraction(); });
@@ -21,6 +20,7 @@ namespace Root.Chair
 
         public void InteractedWithChairPlace(ChairPlaceInteractable chairPlace)
         {
+            this.completed = this.chairs.All(c => c.SameOrientationAsPlace());
             this.currentChair = null;
             if (!this.completed)
             {

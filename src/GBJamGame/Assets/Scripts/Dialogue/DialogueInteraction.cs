@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Root.Dialogues
 {
-    public class DialogueInteraction : Interactable
+    public class DialogueInteractable : Interactable
     {
         [SerializeField] private TextAsset inkJson;
         private bool firstInteraction = true;
