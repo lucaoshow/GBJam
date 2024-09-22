@@ -110,7 +110,7 @@ namespace Root.Dialogues
                 choiceObject.transform.position += offset;
                 choiceObject.GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
                 choiceObject.SetActive(true);
-                if (choice.index == 0) { choiceObject.GetComponent<Button>().Select(); }
+                if (choice.index % 2 == 0) { choiceObject.GetComponent<Button>().Select(); }
 
                 this.activeChoices.Insert(choice.index, choiceObject);
             }
