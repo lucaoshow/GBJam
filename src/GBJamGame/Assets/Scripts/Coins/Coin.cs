@@ -1,4 +1,4 @@
-using Root.GameManagement;
+using Root.Audio;
 using Root.Interactions;
 using UnityEngine;
 
@@ -19,7 +19,7 @@ namespace Root.Coins
 
         public override void Interact()
         {
-            GameManager.Instance.AddCoin();
+            AudioManager.Instance.PlaySoundEffect(SoundEffects.Coin);
             this.DisableInteraction();
             this.GetComponent<SpriteRenderer>().enabled = false;
         }

@@ -6,7 +6,7 @@ namespace Root.Chair
     public class ChairPlaceInteractable : Interactable
     {
         [SerializeField] private ChairPuzzleManager chairsManager;
-        public ChairOrientations orientation { get; private set }
+        public ChairOrientations orientation { get; private set; }
         private ChairInteractable chair;
         
         public override void Start()

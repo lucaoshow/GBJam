@@ -1,5 +1,4 @@
 using Cinemachine;
-using Root.Audio;
 using UnityEngine;
 
 namespace Root.GameManagement
@@ -8,6 +7,12 @@ namespace Root.GameManagement
     {
         [SerializeField] private GameObject player;
         [SerializeField] private CinemachineVirtualCamera virtualCamera;
+        [SerializeField] private Animator fadeAnimator;
+        
+        [HideInInspector] public bool fading;
+        [HideInInspector] public bool fadeInHalf;
+        private float fadeTime;
+        private readonly float fadeDuration = 3f;
 
         private static GameManager instance;
         public static GameManager Instance
@@ -24,15 +29,30 @@ namespace Root.GameManagement
             instance = this;
         }
 
+        private void Update()
+        {
+            if (this.fadeTime >= this.fadeDuration)
+            {
+                this.fading = false;
+            }
+
+            if (this.fading)
+            {
+                this.fadeTime += Time.deltaTime;
+            }
+
+            this.fadeInHalf = this.fading && this.fadeTime >= this.fadeDuration / 2;
+        }
+
         public void TransportPlayerTo(Vector3 destination)
         {
             this.player.transform.position = destination;
             this.virtualCamera.transform.position = destination;    
         }
 
-        public void AddCoin()
+        public void Fade()
         {
-            AudioManager.Instance.PlaySoundEffect(SoundEffects.Coin);
+            this.fadeAnimator.SetTrigger("start");
         }
     }
 }
