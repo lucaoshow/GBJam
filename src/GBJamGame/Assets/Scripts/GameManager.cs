@@ -12,7 +12,7 @@ namespace Root.GameManagement
         
         [HideInInspector] public bool fading;
         [HideInInspector] public bool fadeInHalf;
-        private float fadeTime;
+        private float fadeTime = 0f;
         private readonly float fadeDuration = 3f;
 
         private bool play;
@@ -38,6 +38,7 @@ namespace Root.GameManagement
             if (this.fadeTime >= this.fadeDuration)
             {
                 this.fading = false;
+                this.fadeTime = 0f;
             }
 
             if (this.fading)
@@ -60,9 +61,9 @@ namespace Root.GameManagement
             this.virtualCamera.transform.position = destination;    
         }
 
-        public void Fade()
+        public void Fade(bool replaySoundtrack)
         {
-            this.play = true;
+            this.play = replaySoundtrack;
             AudioManager.Instance.Pause();
             this.fadeAnimator.SetTrigger("start");
             this.fading = true;

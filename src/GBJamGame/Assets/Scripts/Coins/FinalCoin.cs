@@ -14,7 +14,7 @@ namespace Root.Coins
         {
             if (!this.finalCoin.CanInteract() && !this.faded)
             {
-                GameManager.Instance.Fade();
+                GameManager.Instance.Fade(false);
                 this.faded = true;
             }
 

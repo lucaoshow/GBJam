@@ -36,7 +36,7 @@ namespace Root.Monster
             {
                 if (this.timer >= this.secondsToKill)
                 {
-                    GameManager.Instance.Fade();
+                    GameManager.Instance.Fade(true);
                 }
                 
                 this.timer += Time.deltaTime;

@@ -46,4 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 4184723768344074360, guid: ec5ba201cf0d1e54e8d620f95e135933, type: 3}
   dialogueChoice: {fileID: 4736819326895920009, guid: 5c8f1ff151089cf4ca4abd773293e0a1, type: 3}
-  choicesOffset: {x: 10, y: 4}
+  choicesOffset: {x: 2, y: 4}
+  secondsToWriteLetter: 0

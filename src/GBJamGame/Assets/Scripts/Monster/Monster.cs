@@ -1,6 +1,7 @@
 using Root.Audio;
 using Root.Dialogues;
 using Root.GameManagement;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Root.Monster
@@ -29,7 +30,7 @@ namespace Root.Monster
         void Start()
         {
             this.rb = this.GetComponent<Rigidbody2D>();
-            this.initialPos = this.transform.position;
+            this.initialPos = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
             this.gameObject.SetActive(false);
         }
 
@@ -68,11 +69,14 @@ namespace Root.Monster
                     break;
 
                 case MonsterStates.Waiting:
+                    Debug.Log(GameManager.Instance.fadeInHalf);
                     if (!this.reseted && GameManager.Instance.fadeInHalf)
                     {
-                        GameObject dialogue = Instantiate(this.dialogueToWakeUp, this.dialogueToWakeUp.transform.position, Quaternion.identity, this.dialoguesParent);
-                        GameManager.Instance.TransportPlayerTo(this.playerRespawn.position);
+                        
+                        GameObject dialogue = Instantiate(this.dialogueToWakeUp, Vector3.zero, Quaternion.identity, this.dialoguesParent);
                         dialogue.SetActive(true);
+                        dialogue.GetComponent<DialogueInteractable>().EnableInteraction();
+                        GameManager.Instance.TransportPlayerTo(this.playerRespawn.position);
                         this.transform.position = this.initialPos;
                         this.reseted = true;
                     }
@@ -108,7 +112,7 @@ namespace Root.Monster
         {
             if (collision.collider.CompareTag("Player") && this.state == MonsterStates.Follow)
             {
-                GameManager.Instance.Fade();
+                GameManager.Instance.Fade(true);
                 this.state = MonsterStates.Waiting;
                 this.rb.velocity = Vector3.zero;
                 this.reseted = false;

@@ -524,7 +524,7 @@ PrefabInstance:
       objectReference: {fileID: 1598857864}
     - target: {fileID: 3480793725477515658, guid: 9b2d688b02125874d84ceaad80cd0aee, type: 3}
       propertyPath: moveSpeed
-      value: 0.4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3480793725477515658, guid: 9b2d688b02125874d84ceaad80cd0aee, type: 3}
       propertyPath: playerRespawn
@@ -19282,7 +19282,6 @@ GameObject:
   - component: {fileID: 752801375}
   - component: {fileID: 752801374}
   - component: {fileID: 752801373}
-  - component: {fileID: 752801377}
   - component: {fileID: 752801378}
   m_Layer: 0
   m_Name: HallGlitchedNPC
@@ -19418,21 +19417,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &752801377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752801372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 814886f6ce351a242917c41856041994, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectsToActivate:
-  - {fileID: 1179846241}
-  interactable: {fileID: 752801374}
 --- !u!114 &752801378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19571,6 +19555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToActivate:
   - {fileID: 1117703437}
+  - {fileID: 1179846241}
   interactable: {fileID: 797434801}
 --- !u!1001 &888126580
 PrefabInstance:
@@ -22749,7 +22734,7 @@ PrefabInstance:
     - target: {fileID: 930718103859914757, guid: e177e81df496dcd48aa8bae621efdb2d, type: 3}
       propertyPath: inkJson
       value: 
-      objectReference: {fileID: 4900000, guid: b01152ceafa145848999f10c31adbd9e, type: 3}
+      objectReference: {fileID: 4900000, guid: c878a91ac6f58954fa93c5b3cd21c87c, type: 3}
     - target: {fileID: 1078548353296038274, guid: e177e81df496dcd48aa8bae621efdb2d, type: 3}
       propertyPath: m_Name
       value: RanAwayFromMonster
@@ -23197,11 +23182,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8402027318582990076, guid: 8fb9b006d08cc4e4cb30814b82de774a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.647
+      value: 0.663
       objectReference: {fileID: 0}
     - target: {fileID: 8402027318582990076, guid: 8fb9b006d08cc4e4cb30814b82de774a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.077
+      value: -3.15
       objectReference: {fileID: 0}
     - target: {fileID: 8402027318582990076, guid: 8fb9b006d08cc4e4cb30814b82de774a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23725,7 +23710,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1598857864}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 0.4
+    OrthographicSize: 0.3
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -23751,7 +23736,7 @@ Transform:
   m_GameObject: {fileID: 1664161041}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.647, y: -3.077, z: -10}
+  m_LocalPosition: {x: 0.663, y: -3.15, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -52762,7 +52747,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 0.4
+  orthographic size: 0.3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -52787,7 +52772,7 @@ Transform:
   m_GameObject: {fileID: 2142640575}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6469538, y: -3.0527298, z: -10}
+  m_LocalPosition: {x: 0.663, y: -3.15, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

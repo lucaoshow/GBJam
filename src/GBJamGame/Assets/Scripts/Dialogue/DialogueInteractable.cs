@@ -7,12 +7,13 @@ namespace Root.Dialogues
     {
         [SerializeField] private TextAsset inkJson;
         [SerializeField] private bool openDialogueOnCollision = false;
-        private bool firstInteraction = true;
+        private bool firstInteraction;
 
         public override void Start()
         {
             base.Start();
             this.interactWhenCollide = this.openDialogueOnCollision;
+            this.firstInteraction = true;
         }
 
         public override void Interact()
