@@ -1,6 +1,7 @@
 using UnityEngine;
 using Root.Interactions;
 using Root.GameManagement;
+using Root.Audio;
 
 namespace Root.Doors
 {
@@ -8,6 +9,8 @@ namespace Root.Doors
     {
         [SerializeField] private Transform destination;
         [SerializeField] private bool usedOnce;
+        [SerializeField] private bool changeSoundtrack;
+        [SerializeField] private Soundtracks soundtrack;
 
         public override void Start()
         {
@@ -22,6 +25,10 @@ namespace Root.Doors
             if (this.usedOnce)
             {
                 this.DisableInteraction();
+            }
+            if (this.changeSoundtrack)
+            {
+                AudioManager.Instance.PlaySoundtrack(this.soundtrack);
             }
         }
     }

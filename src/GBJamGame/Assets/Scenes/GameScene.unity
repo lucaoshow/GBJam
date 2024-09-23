@@ -12764,6 +12764,14 @@ PrefabInstance:
       propertyPath: usedOnce
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5920080919006696030, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
+      propertyPath: soundtrack
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920080919006696030, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
+      propertyPath: changeSoundtrack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6187316684554370165, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
       propertyPath: m_Name
       value: BackDiningRoom
@@ -12866,7 +12874,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1078548353296038274, guid: e177e81df496dcd48aa8bae621efdb2d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 475531280}
   m_SourcePrefab: {fileID: 100100000, guid: e177e81df496dcd48aa8bae621efdb2d, type: 3}
 --- !u!4 &475531278 stripped
 Transform:
@@ -12878,6 +12889,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1078548353296038274, guid: e177e81df496dcd48aa8bae621efdb2d, type: 3}
   m_PrefabInstance: {fileID: 475531277}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &475531280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475531279}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55bae8a05e7f2b049afa14f14919acd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundtrack: 7
 --- !u!1001 &506582350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18433,6 +18457,14 @@ PrefabInstance:
       propertyPath: usedOnce
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5920080919006696030, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
+      propertyPath: soundtrack
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920080919006696030, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
+      propertyPath: changeSoundtrack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6187316684554370165, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
       propertyPath: m_Name
       value: BackBedroom
@@ -20667,6 +20699,14 @@ PrefabInstance:
       propertyPath: usedOnce
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5920080919006696030, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
+      propertyPath: soundtrack
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920080919006696030, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
+      propertyPath: changeSoundtrack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6187316684554370165, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
       propertyPath: m_Name
       value: DiningRoom
@@ -22404,6 +22444,14 @@ PrefabInstance:
       propertyPath: usedOnce
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5920080919006696030, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
+      propertyPath: soundtrack
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920080919006696030, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
+      propertyPath: changeSoundtrack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6187316684554370165, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
       propertyPath: m_Name
       value: MansionDoor
@@ -22823,6 +22871,14 @@ PrefabInstance:
     - target: {fileID: 5920080919006696030, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
       propertyPath: usedOnce
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920080919006696030, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
+      propertyPath: soundtrack
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920080919006696030, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
+      propertyPath: changeSoundtrack
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6187316684554370165, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
       propertyPath: m_Name
@@ -52806,6 +52862,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5920080919006696030, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
       propertyPath: usedOnce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920080919006696030, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
+      propertyPath: soundtrack
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920080919006696030, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}
+      propertyPath: changeSoundtrack
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6187316684554370165, guid: fef75c931eb1fcd4ab84cad1a1755b1a, type: 3}

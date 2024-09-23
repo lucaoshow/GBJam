@@ -1,4 +1,5 @@
 using Cinemachine;
+using Root.Audio;
 using UnityEngine;
 
 namespace Root.GameManagement
@@ -14,6 +15,8 @@ namespace Root.GameManagement
         private float fadeTime;
         private readonly float fadeDuration = 3f;
 
+        private bool play;
+
         private static GameManager instance;
         public static GameManager Instance
         {
@@ -27,6 +30,7 @@ namespace Root.GameManagement
         {
             DontDestroyOnLoad(this);
             instance = this;
+            AudioManager.Instance.PlaySoundtrack(Soundtracks.Bugged);
         }
 
         private void Update()
@@ -42,6 +46,12 @@ namespace Root.GameManagement
             }
 
             this.fadeInHalf = this.fading && this.fadeTime >= this.fadeDuration / 2;
+
+            if (this.play && this.fadeInHalf)
+            {
+                this.play = false;
+                AudioManager.Instance.PlaySoundtrack(AudioManager.Instance.GetLastSoundtrack());
+            }
         }
 
         public void TransportPlayerTo(Vector3 destination)
@@ -52,6 +62,8 @@ namespace Root.GameManagement
 
         public void Fade()
         {
+            this.play = true;
+            AudioManager.Instance.Pause();
             this.fadeAnimator.SetTrigger("start");
             this.fading = true;
         }

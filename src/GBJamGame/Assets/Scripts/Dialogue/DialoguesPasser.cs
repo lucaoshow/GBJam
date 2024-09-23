@@ -1,6 +1,7 @@
 using Root.General.Utils.Scenes;
 using System.Collections.Generic;
 using UnityEngine;
+using Root.Audio;
 
 namespace Root.Dialogues
 {
@@ -13,6 +14,7 @@ namespace Root.Dialogues
 
         private void Start()
         {
+            AudioManager.Instance.PlaySoundtrack(Soundtracks.Cutscenes);
             this.currentDialogue = this.dialogues[this.index];
             this.index++;
         }

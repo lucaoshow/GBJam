@@ -8,6 +8,7 @@ namespace Root.Audio
         [SerializeField] private AudioSource soundEffectsSource;
         [SerializeField] private AudioClip[] soundtracks;
         [SerializeField] private AudioClip[] soundEffects;
+        private Soundtracks last;
 
         private static AudioManager instance;
         public static AudioManager Instance
@@ -26,8 +27,19 @@ namespace Root.Audio
 
         public void PlaySoundtrack(Soundtracks soundtrackIndex)
         {
+            this.last = soundtrackIndex;
             this.soundtrackSource.clip = this.soundtracks[(int) soundtrackIndex];
             this.soundtrackSource.Play();
+        }
+
+        public void Pause()
+        {
+            this.soundtrackSource.Stop();
+        }
+
+        public Soundtracks GetLastSoundtrack()
+        {
+            return this.last;
         }
 
         public void PlaySoundEffect(SoundEffects soundEffectIndex)

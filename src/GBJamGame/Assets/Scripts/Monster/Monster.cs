@@ -1,3 +1,4 @@
+using Root.Audio;
 using Root.Dialogues;
 using Root.GameManagement;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace Root.Monster
         private Rigidbody2D rb;
         private Vector3 initialPos;
         private bool reseted = false;
+        private bool playedSound = false;
 
         void Start()
         {
@@ -36,6 +38,10 @@ namespace Root.Monster
             switch (this.state)
             {
                 case MonsterStates.Introduction:
+                    if (!this.playedSound)
+                    {
+                        AudioManager.Instance.PlaySoundtrack(Soundtracks.Chase);
+                    }
                     this.rb.velocity = Vector3.right * this.moveSpeed;
                     if (Vector3.Distance(this.transform.position, this.introductionDestination.position) < 0.01 || this.transform.position.x > this.introductionDestination.position.x)
                     {
@@ -56,6 +62,7 @@ namespace Root.Monster
                         this.spriteRenderer.material = this.defaultMaterial;
                         this.spriteRenderer.sprite = this.pixelSprite;
                         this.pixelSpeech.SetActive(true);
+                        AudioManager.Instance.PlaySoundtrack(Soundtracks.Magic);
                         Destroy(this);
                     }
                     break;
