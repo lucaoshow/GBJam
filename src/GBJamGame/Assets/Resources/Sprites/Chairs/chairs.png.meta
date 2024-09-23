@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 30c18bc3ba1714c46891b695799dc26f
+guid: c9cee0d080e37ef479181e15bdda9c3a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,64 +123,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: big_chairs_0
+      name: chairs_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 15
-        height: 28
+        width: 16
+        height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2dff01e89f9fcb94799b8f53f70109f5
-      internalID: -1367112225
+      spriteID: e8221146addeb6a43b12cb9f6bcdc993
+      internalID: -1803190475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: big_chairs_1
+      name: chairs_1
       rect:
         serializedVersion: 2
-        x: 15
+        x: 16
         y: 0
-        width: 15
-        height: 28
+        width: 16
+        height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18e2cd095c86271489f389f75b9ddc0b
-      internalID: 1389741637
+      spriteID: 6647fa86614019247b9a961fb33272f0
+      internalID: -1178503656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: big_chairs_2
+      name: chairs_2
       rect:
         serializedVersion: 2
-        x: 30
+        x: 32
         y: 0
-        width: 15
-        height: 28
+        width: 16
+        height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d70e79800c562974693042efd692969c
-      internalID: -1571099430
+      spriteID: 88ee77e9f1514e442b5bae8d921c1059
+      internalID: -916920628
       vertices: []
       indices: 
       edges: []
@@ -196,9 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      big_chairs_0: -1367112225
-      big_chairs_1: 1389741637
-      big_chairs_2: -1571099430
+      chairs_0: -1803190475
+      chairs_1: -1178503656
+      chairs_2: -916920628
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

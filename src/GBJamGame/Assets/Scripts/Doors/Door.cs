@@ -8,7 +8,6 @@ namespace Root.Doors
     {
         [SerializeField] private Transform destination;
         [SerializeField] private bool usedOnce;
-        [SerializeField] private bool opened;
 
         public override void Start()
         {
@@ -19,19 +18,11 @@ namespace Root.Doors
 
         public override void Interact()
         {
-            if (this.opened)
+            GameManager.Instance.TransportPlayerTo(this.destination.position);
+            if (this.usedOnce)
             {
-                GameManager.Instance.TransportPlayerTo(this.destination.position);
-                if (this.usedOnce)
-                {
-                    this.DisableInteraction();
-                }
+                this.DisableInteraction();
             }
-        }
-
-        public void Open()
-        {
-            this.opened = true;
         }
     }
 }

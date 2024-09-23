@@ -1,4 +1,5 @@
 using Cinemachine;
+using Root.Audio;
 using UnityEngine;
 
 namespace Root.GameManagement
@@ -27,6 +28,11 @@ namespace Root.GameManagement
         {
             this.player.transform.position = destination;
             this.virtualCamera.transform.position = destination;    
+        }
+
+        public void AddCoin()
+        {
+            AudioManager.Instance.PlaySoundEffect(SoundEffects.Coin);
         }
     }
 }

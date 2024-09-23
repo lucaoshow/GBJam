@@ -13,6 +13,7 @@ namespace Root.Interactions
 
         public virtual void Start()
         {
+            this.interactionIcon = Instantiate(this.interactionIcon, this.transform.position + new Vector3(0.1f, 0.1f, 0), Quaternion.identity, this.transform);
             this.interactionIcon.SetActive(false);
         }
 

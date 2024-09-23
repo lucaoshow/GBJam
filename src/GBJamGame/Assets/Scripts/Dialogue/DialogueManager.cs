@@ -45,7 +45,7 @@ namespace Root.Dialogues
             CanvasScaler scaler = this.gameObject.AddComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = new Vector2(160, 144);
-            scaler.referencePixelsPerUnit = 16;
+            scaler.referencePixelsPerUnit = 100;
             this.gameObject.AddComponent<GraphicRaycaster>();
 
             this.dialogueBox = Instantiate(this.dialogueBox, canvas.transform);

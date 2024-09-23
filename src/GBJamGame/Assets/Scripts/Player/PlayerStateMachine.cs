@@ -128,6 +128,7 @@ namespace Root.Player
                 case InteractionTypes.Door:
                 case InteractionTypes.Coin:
                 case InteractionTypes.Chair:
+                    this.interactionHandler.Interact();
                     return PlayerStates.Idle;
             }
 
