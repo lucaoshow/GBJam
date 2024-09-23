@@ -5,6 +5,7 @@ namespace Root.Monster
 {
     public class Monster : MonoBehaviour
     {
+        [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private Transform target;
         [SerializeField] private float moveSpeed;
         private NavMeshAgent agent;
@@ -20,6 +21,7 @@ namespace Root.Monster
         {
             this.agent.SetDestination(this.target.position);
             this.agent.velocity = this.GetDirectionFromVelocity(this.agent.desiredVelocity) * this.moveSpeed;
+            this.spriteRenderer.flipX = this.agent.velocity.x < 0;
         }
 
         private Vector3 GetDirectionFromVelocity(Vector3 velocity)
