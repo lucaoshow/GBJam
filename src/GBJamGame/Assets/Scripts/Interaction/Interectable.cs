@@ -7,17 +7,19 @@ namespace Root.Interactions
         [SerializeField] private GameObject interactionIcon;
         protected bool stillInteractable = true;
         protected bool interactWhenCollide = false;
+        protected InteractionTypes interactionType;
         
         public virtual void Interact() { }
 
         public virtual void Start()
         {
+            this.interactionIcon = Instantiate(this.interactionIcon, this.transform.position + new Vector3(0.1f, 0.1f, 0), Quaternion.identity, this.transform);
             this.interactionIcon.SetActive(false);
         }
 
-        public virtual InteractionTypes GetInteractionType() 
+        public InteractionTypes GetInteractionType() 
         {
-            return InteractionTypes.Dialogue;
+            return this.interactionType;
         }
 
         public virtual bool CanInteract()

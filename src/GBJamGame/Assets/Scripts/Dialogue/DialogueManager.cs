@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Root.Audio;
 
 namespace Root.Dialogues
 {
@@ -12,6 +13,7 @@ namespace Root.Dialogues
         [SerializeField] private GameObject dialogueBox;
         [SerializeField] private GameObject dialogueChoice;
         [SerializeField] private Vector2 choicesOffset;
+        [SerializeField] private float secondsToWriteLetter;
         private TextMeshProUGUI dialogueText;
         private Rect dialogueChoiceRect;
         private Story currentDialogue;
@@ -20,6 +22,8 @@ namespace Root.Dialogues
         private string completeDialogueText = "";
         private bool dialogueEnded = false;
         private bool dialogueHasChoices;
+
+        private float writingTimeCount;
 
         private static DialogueManager instance;
         public static DialogueManager Instance
@@ -41,7 +45,7 @@ namespace Root.Dialogues
             CanvasScaler scaler = this.gameObject.AddComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = new Vector2(160, 144);
-            scaler.referencePixelsPerUnit = 16;
+            scaler.referencePixelsPerUnit = 100;
             this.gameObject.AddComponent<GraphicRaycaster>();
 
             this.dialogueBox = Instantiate(this.dialogueBox, canvas.transform);
@@ -56,7 +60,14 @@ namespace Root.Dialogues
         {
             if (this.WritingText())
             {
-                this.dialogueText.text += this.completeDialogueText[this.dialogueText.text.Length];
+                if (this.writingTimeCount >= this.secondsToWriteLetter)
+                {
+                    this.dialogueText.text += this.completeDialogueText[this.dialogueText.text.Length];
+                    this.writingTimeCount = 0;
+                }
+
+                this.writingTimeCount += Time.deltaTime;
+                AudioManager.Instance.PlaySoundEffect(SoundEffects.Dialogue);
             }
             else if (this.dialogueHasChoices)
             {

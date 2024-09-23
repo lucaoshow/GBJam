@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7341990648924097292}
   - component: {fileID: 2264306004295484945}
   - component: {fileID: 1307233211562001613}
+  - component: {fileID: 4071510805618344626}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -100,7 +101,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.14, y: 0.16}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -129,7 +130,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d677a78ed99c3d945b9e8335b4afa22e, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -150,7 +151,7 @@ SpriteRenderer:
   m_SortingLayerID: -1557679103
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f7f9e046aa14d064cb396ad96ab49241, type: 3}
+  m_Sprite: {fileID: -467587027, guid: f7f9e046aa14d064cb396ad96ab49241, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -188,8 +189,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 9055398858645480869}
-  walkSpeed: 1
-  runSpeed: 2
+  spriteRenderer: {fileID: 7341990648924097292}
+  animator: {fileID: 4071510805618344626}
+  walkSpeed: 0.5
+  runSpeed: 0.8
+--- !u!95 &4071510805618344626
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468632601636337374}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b4a7c9725e4ed54ca2f9a793d1e835c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8168955521573618800
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +227,7 @@ GameObject:
   - component: {fileID: 3435537460321059225}
   m_Layer: 3
   m_Name: InteractionHandler
-  m_TagString: Untagged
+  m_TagString: PlayerInteraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

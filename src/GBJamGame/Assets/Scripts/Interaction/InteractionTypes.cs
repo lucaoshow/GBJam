@@ -2,6 +2,9 @@ namespace Root.Interactions
 {
     public enum InteractionTypes 
     {
-        Dialogue    
+        Dialogue,
+        Door,
+        Chair,
+        Coin
     }
 }

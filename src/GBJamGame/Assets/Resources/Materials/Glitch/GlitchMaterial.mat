@@ -42,9 +42,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _ShakeBlockSize: 5
-    - _ShakeColorRate: 1
-    - _ShakeRate: 0
+    - _ShakeBlockSize: 8.37
+    - _ShakeColorRate: 0
+    - _ShakeRate: 0.2
     - _ShakeSpeed: 3
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

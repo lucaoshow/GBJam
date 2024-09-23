@@ -7,24 +7,35 @@ namespace Root.Chair
     {
         [SerializeField] private ChairPuzzleManager chairsManager;
         [SerializeField] private ChairOrientations chairOrientation;
-        private ChairOrientations placeOrientation;
+        private ChairPlaceInteractable chairPlace;
+
+        public override void Start()
+        {
+            base.Start();
+            this.interactionType = InteractionTypes.Chair;
+        }
+
         public override void Interact()
         {
             if (!this.chairsManager.HasChair() && this.CanInteract())
             {
-                this.gameObject.SetActive(false);
+                if (this.chairPlace != null)
+                {
+                    this.chairPlace.Deoccupy();
+                    this.chairPlace = null;
+                }
                 this.chairsManager.InteractedWithChair(this);
             }
         }
 
-        public void SetPlaceOrientation(ChairOrientations orientation)
+        public void SetChairPlace(ChairPlaceInteractable chairPlace)
         {
-            this.placeOrientation = orientation;
+            this.chairPlace = chairPlace;
         }
 
         public bool SameOrientationAsPlace()
         {
-            return this.chairOrientation == this.placeOrientation;
+            return this.chairPlace != null && this.chairOrientation == this.chairPlace.orientation;
         }
     }
 }
