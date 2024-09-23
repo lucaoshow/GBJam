@@ -520,6 +520,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7341990648924097292, guid: 8fb9b006d08cc4e4cb30814b82de774a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341990648924097292, guid: 8fb9b006d08cc4e4cb30814b82de774a, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
@@ -604,7 +608,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274824386}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8b4a7c9725e4ed54ca2f9a793d1e835c, type: 2}
   m_CullingMode: 0

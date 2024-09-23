@@ -34,7 +34,7 @@ namespace Root.Dialogues
             }
         }
 
-        private void Start()
+        private void Awake()
         {
             DontDestroyOnLoad(this);
             instance = this;
@@ -44,7 +44,7 @@ namespace Root.Dialogues
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             CanvasScaler scaler = this.gameObject.AddComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(160, 144);
+            scaler.referenceResolution = new Vector2(640, 576);
             scaler.referencePixelsPerUnit = 100;
             this.gameObject.AddComponent<GraphicRaycaster>();
 

@@ -26,7 +26,7 @@ namespace Root.GameManagement
             }
         }
 
-        private void Start()
+        private void Awake()
         {
             DontDestroyOnLoad(this);
             instance = this;
