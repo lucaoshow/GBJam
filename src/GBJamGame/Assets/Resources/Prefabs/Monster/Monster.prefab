@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6569677948110948835}
   - component: {fileID: 7750370559859943256}
-  - component: {fileID: 1200902600738286531}
   - component: {fileID: 4914857891947826562}
   - component: {fileID: -8766877707376869082}
   - component: {fileID: 3480793725477515658}
@@ -81,28 +80,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.14823124, y: 0.03250414}
   m_EdgeRadius: 0
---- !u!195 &1200902600738286531
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5508934540918098457}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!212 &4914857891947826562
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -189,6 +166,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 4914857891947826562}
-  animator: {fileID: -8766877707376869082}
+  defaultMaterial: {fileID: 0}
   target: {fileID: 0}
   moveSpeed: 3
+  dialogueToWakeUp: {fileID: 0}
+  playerRespawn: {fileID: 0}
+  state: 0
+  introductionDestination: {fileID: 0}
+  introductionActivate: {fileID: 0}
+  finalDialogue: {fileID: 0}
+  pixelSprite: {fileID: 0}
+  pixelSpeech: {fileID: 0}

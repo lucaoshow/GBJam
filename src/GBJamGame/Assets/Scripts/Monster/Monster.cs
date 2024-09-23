@@ -1,29 +1,32 @@
+using Root.Dialogues;
 using Root.GameManagement;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace Root.Monster
 {
     public class Monster : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private Material defaultMaterial;
         [SerializeField] private Transform target;
         [SerializeField] private float moveSpeed;
+        [SerializeField] private Transform dialoguesParent;
         [SerializeField] private GameObject dialogueToWakeUp;
+        [SerializeField] private Transform playerRespawn;
         [SerializeField] private MonsterStates state;
-        [SerializeField] private float introductionTimer;
         [SerializeField] private Transform introductionDestination;
         [SerializeField] private GameObject introductionActivate;
+        [SerializeField] private DialogueInteractable finalDialogue;
+        [SerializeField] private Sprite pixelSprite;
+        [SerializeField] private GameObject pixelSpeech;
         private float introductionCount;
-        private NavMeshAgent agent;
+        private Rigidbody2D rb;
         private Vector3 initialPos;
         private bool reseted = false;
 
         void Start()
         {
-            this.agent = this.GetComponent<NavMeshAgent>();
-            this.agent.updateRotation = false;
-            this.agent.updateUpAxis = false;
+            this.rb = this.GetComponent<Rigidbody2D>();
             this.initialPos = this.transform.position;
             this.gameObject.SetActive(false);
         }
@@ -33,8 +36,8 @@ namespace Root.Monster
             switch (this.state)
             {
                 case MonsterStates.Introduction:
-                    this.transform.position = Vector3.Lerp(this.transform.position, this.introductionDestination.position, this.introductionCount / this.introductionTimer);
-                    if (this.introductionCount >= this.introductionTimer)
+                    this.rb.velocity = Vector3.right * this.moveSpeed;
+                    if (Vector3.Distance(this.transform.position, this.introductionDestination.position) < 0.01 || this.transform.position.x > this.introductionDestination.position.x)
                     {
                         this.introductionActivate.SetActive(true);
                         Destroy(this.gameObject);
@@ -43,18 +46,25 @@ namespace Root.Monster
                     break;
 
                 case MonsterStates.Follow:
-                    this.agent.SetDestination(this.target.position);
-                    this.agent.velocity = this.GetDirectionFromVelocity(this.agent.desiredVelocity) * this.moveSpeed;
-                    this.spriteRenderer.flipX = this.agent.velocity.x < 0;
+                    this.rb.velocity = this.GetDirectionFromVelocity(this.transform.position - this.target.position) * this.moveSpeed;
+                    this.spriteRenderer.flipX = this.rb.velocity.x < 0;
                     break;
 
                 case MonsterStates.Final:
+                    if (!this.finalDialogue.CanInteract())
+                    {
+                        this.spriteRenderer.material = this.defaultMaterial;
+                        this.spriteRenderer.sprite = this.pixelSprite;
+                        this.pixelSpeech.SetActive(true);
+                        Destroy(this);
+                    }
                     break;
 
                 case MonsterStates.Waiting:
                     if (!this.reseted && GameManager.Instance.fadeInHalf)
                     {
-                        GameObject dialogue = Instantiate(this.dialogueToWakeUp);
+                        GameObject dialogue = Instantiate(this.dialogueToWakeUp, this.dialogueToWakeUp.transform.position, Quaternion.identity, this.dialoguesParent);
+                        GameManager.Instance.TransportPlayerTo(this.playerRespawn.position);
                         dialogue.SetActive(true);
                         this.transform.position = this.initialPos;
                         this.reseted = true;
@@ -84,15 +94,17 @@ namespace Root.Monster
                 }
             }
 
-            return -finalDir;
+            return finalDir;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.collider.CompareTag("Player"))
+            if (collision.collider.CompareTag("Player") && this.state == MonsterStates.Follow)
             {
                 GameManager.Instance.Fade();
                 this.state = MonsterStates.Waiting;
+                this.rb.velocity = Vector3.zero;
+                this.reseted = false;
             }
         }
         private enum MonsterStates

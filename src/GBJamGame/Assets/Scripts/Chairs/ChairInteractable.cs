@@ -35,7 +35,7 @@ namespace Root.Chair
 
         public bool SameOrientationAsPlace()
         {
-            return this.chairPlace == null && this.chairOrientation == this.chairPlace.orientation;
+            return this.chairPlace != null && this.chairOrientation == this.chairPlace.orientation;
         }
     }
 }

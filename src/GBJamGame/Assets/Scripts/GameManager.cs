@@ -53,6 +53,7 @@ namespace Root.GameManagement
         public void Fade()
         {
             this.fadeAnimator.SetTrigger("start");
+            this.fading = true;
         }
     }
 }

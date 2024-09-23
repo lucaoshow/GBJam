@@ -6,7 +6,7 @@ namespace Root.Chair
     public class ChairPlaceInteractable : Interactable
     {
         [SerializeField] private ChairPuzzleManager chairsManager;
-        public ChairOrientations orientation { get; private set; }
+        public ChairOrientations orientation;
         private ChairInteractable chair;
         
         public override void Start()
@@ -23,7 +23,6 @@ namespace Root.Chair
                 this.chair = this.chairsManager.GetChair();
                 this.chair.transform.position = this.transform.position;
                 this.chair.SetChairPlace(this);
-                this.chair.gameObject.SetActive(true);
                 this.chairsManager.InteractedWithChairPlace(this);
             }
         }

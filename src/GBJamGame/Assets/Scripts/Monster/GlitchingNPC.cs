@@ -7,6 +7,7 @@ namespace Root.Monster
     public class GlitchingNPC : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private Material defaultMaterial;
         [SerializeField] private DialogueInteractable dialogue;
         [SerializeField] private Sprite monsterSprite;
         [SerializeField] private Transform takePlayerTo;
@@ -26,7 +27,7 @@ namespace Root.Monster
             {
                 if (!this.dialogue.CanInteract())
                 {
-                    this.spriteRenderer.material = null;
+                    this.spriteRenderer.material = this.defaultMaterial;
                     this.spriteRenderer.sprite = this.monsterSprite;
                     this.turnedIntoMonster = true;
                 }
